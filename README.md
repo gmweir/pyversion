@@ -7,7 +7,7 @@ ex //
 Instead of importing urllib from the module urllib, import it from pyversion 
 
 Replace
-"from pyversion import urllib as urllib"
+"from pyversion.version import urllib"
 
 Add this to the top of your modules:
 
