@@ -6,14 +6,14 @@ Goal is to generate code that work on both python2x and python3x.
 from numpy import generic as npscalar
 from numpy import ndarray as nparray
 from sys import version_info as pyver
-from sys import platform as platform
+from sys import platform as sysplatform
 from os import name as osname
 
 
 isposix = osname == 'posix'
 isnt = osname == 'nt'
-islinux = platform.startswith('linux')
-iswin = platform.startswith('win')
+islinux = sysplatform.startswith('linux')
+iswin = sysplatform.startswith('win')
 
 if isposix:
     tmpdir = "/tmp/"
@@ -55,7 +55,7 @@ elif has_bytes:
 else:
     basestring = str
 # end if
-    
+
 if has_unicode:
     unicode = unicode  # analysis:ignore
 else:
@@ -130,7 +130,7 @@ def _encode(string):
         return string.encode('CP1252')
     # end try
 # end def
-    
+
 # numpy char types
 npunicode = 'U'
 npbytes = 'S'
@@ -170,6 +170,5 @@ def tobytes(string):
 
 def tounicode(string):
     return _tostring(string, unicode, npunicode, _decode)
-    
-    
-    
+
+
